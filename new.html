@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pension Portal Trial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        $(function() {
+            $("#tabs").tabs();
+            
+            // Next button click handler
+            $(".next").click(function() {
+                var currentIndex = $("#tabs").tabs("option", "active");
+                var totalTabs = $("#tabs ul li").length;
+                var nextIndex = currentIndex + 1;
+  
+                // If we're not at the last tab, go to the next one
+                if (nextIndex < totalTabs) {
+                    $("#tabs").tabs("option", "active", nextIndex);
+                }
+            });
+  
+            // Previous button click handler
+            $(".previous").click(function() {
+                var currentIndex = $("#tabs").tabs("option", "active");
+                var prevIndex = currentIndex - 1;
+  
+                // If we're not at the first tab, go to the previous one
+                if (prevIndex >= 0) {
+                    $("#tabs").tabs("option", "active", prevIndex);
+                }
+            });
+        });
+      </script>
+ 
+</head>
+<header><h1 class="text-center">PENSION MANAGEMENT</h1></header>
+<body>
+    <div id="tabs" class="mt-4">
+        <ul>
+            <li><a href="#tabs-1">Personal Details</a></li>
+            <li><a href="#tabs-2">Deduction</a></li>
+            <li><a href="#tabs-3">Gratutity Nominee</a></li>
+            <li><a href="#tabs-4">Service Details</a></li>
+            <li><a href="#tabs-5">Family Details</a></li>
+            <li><a href="#tabs-6">Calculations</a></li>
+            <li><a href="#tabs-7">Objections</a></li>
+            <li><a href="#tabs-8">View Files</a></li>
+        </ul>
+        <div id="tabs-1">
+            <div class="container">
+                <h2>Personal Details</h2>
+                <hr class="red-line">
+                <div class="form-container">                      
+                    <form>
+                        <!-- Employee Information -->
+                        <h3>Employee's Information</h3>
+                        <table id="employeeInfo">
+                            <!-- Row 1 -->
+                            <tr>
+                                <td>
+                                    <label for="typeOfRetirement">Type of Retirement</label>
+                                </td>
+                                <td>
+                                  <input type="text" id="newField1" name="newField1">
+                                </td>
+                                <td>
+                                    <label for="newField1">Employee ID</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="newField2" name="newField2">
+                                </td>
+                            </tr>
+                            <!-- Row 1 -->
+                            <tr>
+                                <td>
+                                    <label for="typeOfRetirement">Name</label>
+                                </td>
+                                <td>
+                                  <input type="text" id="newField1" name="newField1">
+                                </td>
+                                <td>
+                                    <label for="newField1">Emp Marital Status</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="newField2" name="newField2">
+                                </td>
+                            </tr><!-- Row 1 -->
+                            <tr>
+                                <td>
+                                    <label for="typeOfRetirement">Sex</label>
+                                </td>
+                                <td>
+                                  <input type="text" id="newField1" name="newField1">
+                                </td>
+                                <td>
+                                    <label for="newField1">Date Of Birth</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="newField2" name="newField2">
+                                </td>
+                            </tr><!-- Row 1 -->
+                            <tr>
+                                <td>
+                                    <label for="typeOfRetirement">Date Of Joining</label>
+                                </td>
+                                <td>
+                                  <input type="text" id="newField1" name="newField1">
+                                </td>
+                                <td>
+                                    <label for="newField1">Date Of Missing</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="newField2" name="newField2">
+                                </td>
+                            </tr><!-- Row 1 -->
+                            <tr>
+                                <td>
+                                    <label for="typeOfRetirement">Date Of Death</label>
+                                </td>
+                                <td>
+                                  <input type="text" id="newField1" name="newField1">
+                                </td>
+                                <td>
+                                    <label for="newField1">Father/Husband Name</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="newField2" name="newField2">
+                                </td>
+                            </tr><!-- Row 1 -->
+                            <tr>
+                                <td>
+                                    <label for="typeOfRetirement">Spouse's Name</label>
+                                </td>
+                                <td>
+                                  <input type="text" id="newField1" name="newField1">
+                                </td>
+                                <td>
+                                    <label for="newField1">Pension Nominee Name</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="newField2" name="newField2">
+                                </td>
+                            </tr>
+                        </table>
+                    
+                        <!-- Pensioner's Information -->
+                        <h3>Pensioner's Information</h3>
+                        <table>
+                          <!-- Row 1 -->
+                          <tr>
+                            <td>
+                                <label for="typeOfRetirement">Name</label>
+                            </td>
+                            <td>
+                              <input type="text" id="newField1" name="newField1">
+                            </td>
+                            <td>
+                                <label for="newField1">Date Of Birth</label>
+                            </td>
+                            <td>
+                                <input type="text" id="newField2" name="newField2">
+                            </td>
+                        </tr><!-- Row 1 -->
+                        <tr>
+                            <td>
+                                <label for="typeOfRetirement">Sex</label>
+                            </td>
+                            <td>
+                              <input type="text" id="newField1" name="newField1">
+                            </td>
+                            <td>
+                                <label for="newField1">Id Mark</label>
+                            </td>
+                            <td>
+                                <input type="text" id="newField2" name="newField2">
+                            </td>
+                        </tr><!-- Row 1 -->
+                        <tr>
+                            <td>
+                                <label for="typeOfRetirement">Height(in inches)</label>
+                            </td>
+                            <td>
+                              <input type="text" id="newField1" name="newField1">
+                            </td>
+                        </tr>
+                        </table>
+                    
+                        <!-- Address of Pensioner -->
+                        <h3>Address of Pensioner</h3>
+                        <table>
+                          <!-- Row 1 -->
+                          <tr>
+                            <td>
+                                <label for="typeOfRetirement">House No/locality</label>
+                            </td>
+                            <td>
+                              <input type="text" id="newField1" name="newField1">
+                            </td>
+                            <td>
+                                <label for="newField1">State/Province</label>
+                            </td>
+                            <td>
+                                <input type="text" id="newField2" name="newField2">
+                            </td>
+                        </tr><!-- Row 1 -->
+                        <tr>
+                            <td>
+                                <label for="typeOfRetirement">State/District/PIN</label>
+                            </td>
+                            <td>
+                              <input type="text" id="newField1" name="newField1">
+                            </td>
+                            <td>
+                                <label for="newField1">Paper Sign Date</label>
+                            </td>
+                            <td>
+                                <input type="text" id="newField2" name="newField2">
+                            </td>
+                        </tr><!-- Row 1 -->
+                        <tr>
+                            <td>
+                                <label for="typeOfRetirement">Pension Commencement Date</label>
+                            </td>
+                            <td>
+                              <input type="text" id="newField1" name="newField1">
+                            </td>
+                            <td>
+                                <label for="newField1">Eligible For Gratuity</label>
+                            </td>
+                            <td>
+                                <input type="text" id="newField2" name="newField2">
+                            </td>
+                        </tr>
+                        </table>
+                
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-2">
+                <div class="container">
+                    <h2>Deduction</h2>
+                    <hr class="red-line">
+                    <div class="section">
+                        <h3></h3>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="houseNo">House No/Locality</label>
+                            <input type="text" id="houseNo" name="houseNo">
+                        </div>
+                        <div class="form-group">
+                            <label for="StreetName">Street/District/PIN</label>
+                            <input type="text" id="StreetName" name="StreetName">
+                        </div>
+                        <div class="form-group">
+                            <label for="StreetPName">Street/Province</label>
+                            <input type="text" id="StreetPName" name="StreetPName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-3">
+                <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+            </div>
+            <div id="tabs-4">
+                <div class="container">
+                    <h2>TOTAL SERVICE PERIOD</h2>
+                    <hr class="red-line">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label for="totalYears" class="col-sm-4 col-form-label">Years</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="totalYears">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label for="totalMonths" class="col-sm-4 col-form-label">Months</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="totalMonths">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label for="totalDays" class="col-sm-4 col-form-label">Days</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="totalDays">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <h2>ADD-ON SERVICE</h2>
+                <hr class="red-line">
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="totalYears" class="col-sm-4 col-form-label">Years</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="totalYears">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="totalMonths" class="col-sm-4 col-form-label">Months</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="totalMonths">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="totalDays" class="col-sm-4 col-form-label">Days</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="totalDays">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>NON QUALIFYING SERVICE</h2>
+                <hr class="red-line">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Years</th>
+                        <th>Months</th>
+                        <th>Days</th>
+                    </tr>
+                    <tr>
+                        <td>Boys Service</td>
+                        <td><input type="number" id="Years" name="Years"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                    </tr>
+                    <tr>
+                        <td>Break In Service</td>
+                        <td><input type="number" id="Years" name="Years"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                    </tr>
+                    <tr>
+                        <td>Suspension Period</td>
+                        <td><input type="number" id="Years" name="Years"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                    </tr>
+                    <tr>
+                        <td>Any Other Non Qualifying Service Period</td>
+                        <td><input type="number" id="Years" name="Years"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Non Qualifying Service</td>
+                        <td><input type="number" id="Years" name="Years"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                        <td><input type="number" id="Months" name="Months"></td>
+                    </tr>
+                </table>
+                <h2>NET QUALIFYING SERVICE PERIOD</h2>
+                <hr class="red-line">
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="totalYears" class="col-sm-4 col-form-label">Years</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="totalYears">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="totalMonths" class="col-sm-4 col-form-label">Months</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="totalMonths">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label for="totalDays" class="col-sm-4 col-form-label">Days</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" id="totalDays">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <h2>QUALIFYING SIX MONTHLY</h2>
+                    <hr class="red-line">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label for="totalYears" class="col-sm-4 col-form-label">Total Six Monthly</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="totalYears">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label for="totalMonths" class="col-sm-4 col-form-label">For Pension</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="totalMonths">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label for="totalDays" class="col-sm-4 col-form-label">For Gratuity</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="totalDays">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-5">
+                <div class="container">
+                <h3>Family Details</h3>
+                <hr class="red-line">
+                <table>
+                    <!-- Row 1 -->
+                    <tr>
+                      <td>
+                          <label for="newField1">Name</label>
+                      </td>
+                      <td>
+                          <input type="text" id="newField2" name="newField2">
+                      </td>
+                      <td>
+                          <label for="typeOfRetirement"> Date Of Birth</label>
+                      </td>
+                      <td>
+                        <input type="text" id="newField1" name="newField1">
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label for="newField1">Martial Status</label>
+                      </td>
+                      <td>
+                          <input type="text" id="newField2" name="newField2">
+                      </td>
+                      <td>
+                          <label for="typeOfRetirement">Disability</label>
+                      </td>
+                      <td>
+                        <input type="text" id="newField1" name="newField1">
+                      </td>
+                  </tr>
+              </table><br>
+              <br>
+                <table>
+                  <!-- Row 1 -->
+                  <tr>
+                    <td>
+                        <label for="newField1">Name</label>
+                    </td>
+                    <td>
+                        <input type="text" id="newField2" name="newField2">
+                    </td>
+                    <td>
+                        <label for="typeOfRetirement"> Address House No/locality</label>
+                    </td>
+                    <td>
+                      <input type="text" id="newField1" name="newField1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="newField1">State/Province</label>
+                    </td>
+                    <td>
+                        <input type="text" id="newField2" name="newField2">
+                    </td>
+                    <td>
+                        <label for="typeOfRetirement">State/District/PIN</label>
+                    </td>
+                    <td>
+                      <input type="text" id="newField1" name="newField1">
+                    </td>
+                </tr>
+            </table><br>
+            <br>
+            <table>
+                <!-- Row 1 -->
+                <tr>
+                  <td>
+                      <label for="newField1">Name</label>
+                  </td>
+                  <td>
+                      <input type="text" id="newField2" name="newField2">
+                  </td>
+                  <td>
+                      <label for="typeOfRetirement"> Address House No/locality</label>
+                  </td>
+                  <td>
+                    <input type="text" id="newField1" name="newField1">
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <label for="newField1">State/Province</label>
+                  </td>
+                  <td>
+                      <input type="text" id="newField2" name="newField2">
+                  </td>
+                  <td>
+                      <label for="typeOfRetirement">State/District/PIN</label>
+                  </td>
+                  <td>
+                    <input type="text" id="newField1" name="newField1">
+                  </td>
+              </tr>
+          </table><br>
+          <br>
+          <table>
+            <!-- Row 1 -->
+            <tr>
+              <td>
+                  <label for="newField1">Name</label>
+              </td>
+              <td>
+                  <input type="text" id="newField2" name="newField2">
+              </td>
+              <td>
+                  <label for="typeOfRetirement"> Address House No/locality</label>
+              </td>
+              <td>
+                <input type="text" id="newField1" name="newField1">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <label for="newField1">State/Province</label>
+              </td>
+              <td>
+                  <input type="text" id="newField2" name="newField2">
+              </td>
+              <td>
+                  <label for="typeOfRetirement">State/District/PIN</label>
+              </td>
+              <td>
+                <input type="text" id="newField1" name="newField1">
+              </td>
+          </tr>
+      </table>
+        </div>
+            </div>
+            <div id="tabs-6">
+                <div class="container">
+                    <h4 class="mt-5">CALCULATION(in Rupees)</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Gross Pension</td>
+                                    <td>38000</td>
+                                </tr>
+                                <tr>
+                                    <td>Normal Family Pension</td>
+                                    <td>9800</td>
+                                </tr>
+                                <tr>
+                                    <td>Enhanced Family Pension</td>
+                                    <td>89000</td>
+                                </tr>
+                                <tr>
+                                    <td>(31/07/2024)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Commutation</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-7">
+                <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+            </div>
+            <div id="tabs-8">
+                <div class="container">
+                    <h3>Files To be Uploded here :</h3>
+               <input type="file"><br>
+               <br>
+               <button type="submit">Upload File</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    <a href="#" class="previous">&laquo; Previous</a>
+    <a href="#" class="next"> &raquo; Next</a>
+
+</body>
+</html>
